@@ -18,7 +18,6 @@
 	- GET /jobs -> job\[\]
 		- header: {user_id}
 - high level
-	- my answers and mistakes ![[whiteboard.png]]
 	- How will jobs be scheduled and executed?
 		- - design does not persist the job data
 		- - design does talk about how it will be executed, but could be unnecessarily complex
@@ -83,4 +82,5 @@
 	2. We could have a deduplication table that checks if the job execution is processed already. If the job id is in the table, skip the execution. But this needs another table and the table needs to be cleaned up regularly. There's also a race condition window between checking and writing to the deduplication table.
 	3. Best way is to design the jobs themselves to be idempotent using idempotency keys and conditional operations. "set counter to X" is better than "increment counter" and instead of "send email" check if the email flag is already set. So *instead of deciding whether to execute the job or not, make it so that it doesn't matter even if it executes multiple times.*
 
-
+practice: ![[whiteboard-before.png]]
+better: ![[whiteboard-after.png]]

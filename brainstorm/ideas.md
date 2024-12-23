@@ -1,0 +1,8 @@
+- LLM
+    - proactive llm that probes me until I prove I understand the topic
+    - llm based llm settings config memory, temp, response type are weights
+	- study tool (note taking with merge conflict + canvas interface)
+	- Gov paperwork agent
+	- shell script writer (open source)
+- webcrawler
+- 
