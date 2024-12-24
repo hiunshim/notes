@@ -1,0 +1,65 @@
+Design a chat app like WhatsApp. It allows users to send/receive encrypted messages and calls.
+- functional requirements
+	- start group chats with up to 100 people
+	- send/receive messages
+	- receive message sent while they were offline (up to 30 days)
+	- send/receive media
+	- 1B DAU
+- non-functional
+	- guide
+		- low-latency delivery, <500ms
+		- guarantee delivery of messages
+		- high throughput for billions of users
+		- messages not stored unnecessarily
+		- fault-tolerant
+	- tip
+		- consider how the system can remain operational under scenarios. think of what can make the functional requirements impossible. if we guarantee X non-functional, can we guarantee Y functional?
+- entities
+	- user, message + media (same or separate entities), group (chats)
+	- consider adding clients (multiple devices for a user)
+- APIs
+	- considerations
+		- how to make group chat
+		- how to send message
+		- how to include an attachment (media) in message
+		- reading message received while offline
+	- Use websockets for the clients to connect to the server. specify both commands that are sent to the server and those received by the client. need to create chats, send messages, and receive updates to both chats and messages.
+	- Sent
+		- // -> createChat {"participants": \[\], "name": ""} -> {"chatId": ""}
+		- // -> sendMessage {chatid, message, attachments} -> success|fail
+	- Received
+		- // <- chatUpdate {chatid, participants} -> received
+		- // <- newMessage {chatid, userid, message, attachments} -> received
+- high level
+	- How will user create a chat?
+		- chat server with websocket connection
+		- createChat command makes two tables in DynamoDB: chat table, participants table
+			- for participants table, include GSI (global secondary index [[dynamodb]]) to look up participants by 'chatId' or 'chatIds' by participant
+			- chat (id, name, metadata), charParticipant (chatId, participantId)
+	- How will users send/receive messages
+		- userId to websocket connection associated with the user hashmap. when a message is sent, look up all chat participants and send the message over the connections associated with each participant
+	- How will offline user receive messages
+		- add message table (id, contents, creatorId, timestamp) and inbox table (recipientId, messageId)
+		- when messages are sent, create an entry in the inbox table. once messages are received by users, they "ack" the message and we delete it from the inbox table. for offline users, when they intially connect, we read all of the messages in the inbox table and send them to the client via the 'updateMessage' command.
+		- consider using 'status' or 'delivered' field in the message table
+	- Media?
+		- use blob storage like S3 to generate presigned url from the server and client will upload directly to the blob storage
+- Deep dives
+	- how to scale?
+		- horizontally scale chat server and DB
+		- use L4 load balancer
+		- use pub/sub system
+	- how to scale pub/sub system? how to partition and shard?
+		- subscribe to topics for userId
+	- how to horizontally scale the chat server? what load balancing strategy?
+		- consistent hashing to add new servers
+	- handle multiple clients (devices)
+		- create new clients table to keep track of clints by user id - clients (id, userid)
+		- look up all clients for a user, chat servers subscribe to a topic with the clientId, send to all clients
+
+### Takeaways
+- Know how pub/sub actually works. Weak on Key/Value.
+	- How is many-to-many handled in pub/sub?
+- Understand how to actually "horizontally" scale a CRUD server and DB. Just saying horizontally scale won't cut it.
+- Try to think of how we can modularize the system. A lot of the times, my systems are coupled.
+- Stop relying on Redis to be a fast storage. Don't think about speed at first and utilize the DB first. For example, I tried to retry on Redis as the actual inbox message storage but this will lose data. Redis is used as a lightweight hashmap of socket connections.

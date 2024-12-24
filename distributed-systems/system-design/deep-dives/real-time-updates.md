@@ -44,8 +44,30 @@
     - pros: direct peer communication, low latency, reduced server cost, native audio/video support
     - cons: complicated (> websockets), reuiqres signaling server, NAT/firewall issues, connection setup delay
 
-        
-                                                         
-                                                         
-                                                         
-                                                         
+Latency sensitive?
+    Frequent, Bi-direction?
+        P2P, Audio/Video
+            WebRPC
+        Websocket
+    SSE
+Simple Polling
+
+### Server-Side Push/Pull
+How do we trigger updates?
+1. pulling via polling
+2. pushing via consistent hashes
+3. pushing via pub/sub
+
+1. Pulling with simple polling is a **pull-based** model. client constantly asks server for updates and server maintains a state to respond to those requests. For a chat app we'd be polling for "what message has timestamp greater than last?"
+    - super simple but has high latency and can pressure DB
+2. Pushing via [[consistent-hashing]] is pushing an update to the client instead of polling from the client. We use **hashing** to figure out who to push to.
+	- predictable server assignment and minimal connection disruption but complex to implement and need coordination server like [[apache-zookeeper]] and all servers need to maintain routing information.
+3. Pushing via Pub/Sub: single service is responsible for collecting updates from the source and broadcasting them to all interested clients. Popular options are [[apache-kafka]] and [[redis]].
+	- pros: managing load on endpoint servers is easy, broadcast updates to large number of clients efficiently, minimize proliferation of state.
+	- cons: don't know when subscribers are connected or when they disconnect, pub/sub service becomes a single point of failure and bottleneck, this additional layer could add latency, many-to-many connections between pub/sub service hosts and endpoint servers.
+
+### Overview
+Prefer poling if possible. If real-time is a necessity, consider pub/sub. If the application requires a lot of state/resources for each connection, consistent hashing will be a more optimal use of resources.
+
+### Problem Solving
+Ask "how do clients connect and receive updates from my system?", "how do I trigger updates from the source and get them to the clients?"
