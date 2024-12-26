@@ -1,2 +1,2 @@
-[Machine Learning](machine-learning/)\
-[Distributed Systems](distributed-systems/)
+- [Machine Learning]([[machine-learning/README|README]])
+- [Distributed Systems]([[distributed-systems/README|README]])

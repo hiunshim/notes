@@ -1,2 +1,2 @@
-[Deep Dives](deep-dives/)\
-[Guided Practice](guided-practice/)
+- [System Design]([[distributed-systems/system-design/README|README]])
+- 

@@ -1,11 +1,18 @@
+- Educational platform
+- Sustainability
+- Short form
+	- arcade style games
+	- interactive challenges like do re mi
+- web3
+	- multiverse stories where people build on top of each other's stories
 - Library
     - Scheduler - library that helps determine when a service should initiate to a user. It's kind of like a notification service but meant to be interactive. (Spaced-repetition, Duolingo reminders, workout routine, etc.)
-
 - LLM
     - proactive llm that probes me until I prove I understand the topic
     - llm based llm settings config memory, temp, response type are weights
     - study tool (note taking with merge conflict + canvas interface)
     - Gov paperwork agent
     - shell script writer (open source)
+    - games like blackjack
 - webcrawler
-- 
+- clock

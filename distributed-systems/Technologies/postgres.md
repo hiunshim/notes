@@ -1,0 +1,1 @@
+write limit: 10K writes per second is at the limit of a well-provisioned single Postgres instance.
