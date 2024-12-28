@@ -1,10 +1,7 @@
 - Educational platform
-- Sustainability
-- Short form
-	- arcade style games
-	- interactive challenges like do re mi
-- web3
-	- multiverse stories where people build on top of each other's stories
+	- For Anki, what end up happening is people start memorizing the card itself. Not the actual content, but the shape, word count, keywords, etc. and immediately recognize what the answer of the card should be. LLM should be able to modify this so that the "concept" itself is learned, not the card. It should ask me questions and make even more cards broken down into smaller concepts if I get it wrong.
+		- chatgpt project like interface per concept "session" of learning.
+		- excel as DB, row as card, tab as project
 - Library
     - Scheduler - library that helps determine when a service should initiate to a user. It's kind of like a notification service but meant to be interactive. (Spaced-repetition, Duolingo reminders, workout routine, etc.)
 - LLM
@@ -14,5 +11,11 @@
     - Gov paperwork agent
     - shell script writer (open source)
     - games like blackjack
+- Sustainability
+- Short form
+	- arcade style games in short video formats
+	- interactive challenges like do re mi
+- web3
+	- multiverse stories where people build on top of each other's stories
 - webcrawler
 - clock
