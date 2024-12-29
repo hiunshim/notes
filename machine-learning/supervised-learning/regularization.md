@@ -8,7 +8,6 @@ $$\begin{align*}
 * m is the number of training examples in the data set      
 * $f_{\mathbf{w},b}(x^{(i)})$ is the model's prediction, while $y^{(i)}$ is the target
 
-      
 * For a  **linear** regression model  
     $f_{\mathbf{w},b}(x) = \mathbf{w} \cdot \mathbf{x} + b$  
 * For a **logistic** regression model  
@@ -19,3 +18,9 @@ $$\begin{align*}
     
 The term which adds regularization is the
 $$\frac{\lambda}{m} w_j$$
+### How  regularization affects bias and variance
+- Large ƛ = high bias (underfit)
+- Small ƛ = high variance (overfit)
+- Intermediate ƛ = fits right
+### How to choose the regularization parameter ƛ
+[[cross-validation]] Cross-validation can help us choose ƛ.
