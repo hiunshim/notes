@@ -2,9 +2,14 @@
 	- For Anki, what end up happening is people start memorizing the card itself. Not the actual content, but the shape, word count, keywords, etc. and immediately recognize what the answer of the card should be. LLM should be able to modify this so that the "concept" itself is learned, not the card. It should ask me questions and make even more cards broken down into smaller concepts if I get it wrong.
 		- chatgpt project like interface per concept "session" of learning.
 		- excel as DB, row as card, tab as project
-- Library
-    - Scheduler - library that helps determine when a service should initiate to a user. It's kind of like a notification service but meant to be interactive. (Spaced-repetition, Duolingo reminders, workout routine, etc.)
+- Moderation
+    - OpenAI Moderation
+    - Google Perspective
+- Decentralized
+    - at proto
+    - nostr
 - LLM
+    - Scheduler - library that helps determine when a service should initiate to a user. It's kind of like a notification service but meant to be interactive. (Spaced-repetition, Duolingo reminders, workout routine, etc.)
     - proactive llm that probes me until I prove I understand the topic
     - llm based llm settings config memory, temp, response type are weights
     - study tool (note taking with merge conflict + canvas interface)
