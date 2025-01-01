@@ -1,0 +1,1 @@
+- red circles around outlier: c3_w1_anomaly_detection

@@ -1,2 +1,5 @@
-- [Machine Learning]([[machine-learning/README|README]])
-- [Distributed Systems]([[distributed-systems/README|README]])
+- [Machine Learning](machine-learning/)
+- [Distributed Systems](distributed-systems/)
+- [Networks](networks/)
+- [Operating System](operating-system/)
+- [Brainstorm](brainstorm/)

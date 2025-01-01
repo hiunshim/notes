@@ -1,3 +1,4 @@
 - [Supervised Learning](supervised-learning/)
 - [Advanced Learning Algorithms](advanced-learning-algorithms/)
-- [Tensorflow](tensorflow-quirks.md)
+- [Unsupervised Learning](unsupervised-learning/)
+- [Tensorflow](tensorflow/)

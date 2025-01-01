@@ -39,6 +39,12 @@ $$
 $$
 F_1 = 2\cdot \frac{\text{Precision} \cdot \text{Recall}}{\text{Precision} + \text{Recall}}
 $$
+$$
+\begin{aligned}
+   prec&=&\frac{tp}{tp+fp}\\
+   rec&=&\frac{tp}{tp+fn},
+\end{aligned}
+$$
 
 |             | Precision | Recall | Average | F1 Score |
 | ----------- | --------- | ------ | ------- | -------- |
