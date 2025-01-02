@@ -14,8 +14,10 @@
 		- chatgpt project like interface per concept "session" of learning.
 		- excel as DB, row as card, tab as project
 - Moderation
-    - OpenAI Moderation
-    - Google Perspective
+	- voice phishing filter for the elderly
+	- tools
+	    - OpenAI Moderation
+	    - Google Perspective
 - privacy
 	- auto redactor
 - social
