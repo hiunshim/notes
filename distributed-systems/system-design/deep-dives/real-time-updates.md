@@ -23,6 +23,8 @@
 		- browser built-in, automatic reconnection, works over HTTP, more efficient that long polling, simple
 	- cons
 		- one-way, limited browser support, hard to debug since some proxies and networking equipment doesn't support streaming, browsers limit the number of concurrent connections
+		- load balance will need to be configured to support "sticky sessions" so that a user and server can maintain a connection to promote data transfer
+		- have to consider how disconnects/reconnects work
 - Websocket: The Full-Duplex Champion
 	- how it works
 		1. client initiates
