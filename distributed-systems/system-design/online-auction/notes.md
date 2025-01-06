@@ -100,7 +100,7 @@
 	2. purchasing: if highest bidder doesn't pay in N time, move to the next bidder
 	3. bid history: how to view bid history for the auction real-time
 
-![[design.png]]
+![[distributed-systems/system-design/online-auction/design.png]]
 
 Footnotes
 [^1]: Thundering herd
