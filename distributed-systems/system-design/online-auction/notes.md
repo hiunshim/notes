@@ -57,8 +57,8 @@
                 - redis as the source of truth and write to db asynchronously
                 - optimistic concurrency with retry logic to update the cache atomically first, then write the db. if db write failes, roll back the cache update
             - in an interview if distributed transaction is needed, consider if I can work around it to avoid using it.
-        - best - cache max bid in the database: we can use Auction table as out cahce. 
-            1. Lock the auciton row for the given auction (just one row)
+        - best - cache max bid in the database: we can use Auction table as our cache. 
+            1. Lock the auction row for the given auction (just one row)
             2. read max bid from Auction table
             3. write bid to the db with status "accepted" or "rejected"
             4. update max bid in the Auction table if the new bid is higher
