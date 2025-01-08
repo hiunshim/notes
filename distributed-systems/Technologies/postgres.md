@@ -29,3 +29,19 @@ don't use when
 	1. redis for in-memory performance
 	2. dynamodb for managed scalability
 	3. cassandra for write-heavy
+
+Performance
+1. query
+	1. simple indexed lookup: 1000s/sec per core
+	2. complex joins: 100s/sec
+	3. full-table scans: depends if it fits in memory
+2. scale limits
+	1. 100M rows for a table
+	2. full-text up to tens of millions
+	3. complex joins 10M rows
+	4. performance drops if it exceeds RAM
+3. write throughput limit
+	1. simple insert: ~5000/sec per core
+	2. update with index modification: ~1000-2000/sec per core
+	3. complex transactions (multiple tables/indexes): hundreds/sec
+	4. bulk operations: tens of thousands of rows per second

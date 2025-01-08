@@ -9,4 +9,3 @@ Examples:
 2. Ride-Sharing Matchmaking: manage assignment of drivers to riders.
 3. Distributed Cron Jobs: ensures a task is executed by only one server at a time.
 4. Online Auction Bidding System: can be used during final moments of bidding 
-
