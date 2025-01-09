@@ -1,0 +1,4 @@
+- ScyllaDB
+	- Avi Kivity https://www.linkedin.com/in/avikivity/
+	- Dor Laor https://www.linkedin.com/in/dor-laor/
+- CockroachDB
